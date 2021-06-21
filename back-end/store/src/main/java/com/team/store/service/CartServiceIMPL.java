@@ -19,8 +19,6 @@ public class CartServiceIMPL implements CartService {
     }
     @Override
     public List<Cart> findAll() {return cartDAO.findAll();}
-
-
     @Override
     public Object findById(int carId){ return cartDAO.findById(carId);}
     @Override

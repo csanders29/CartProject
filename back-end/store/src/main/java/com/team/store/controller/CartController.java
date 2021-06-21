@@ -31,10 +31,16 @@ public class CartController {
     }
 
     @PutMapping("/updateItem")
-    public Cart updateItem(@RequestBody Cart updateItem){
+    public Cart updateEmployee(@RequestBody Cart updateItem) {
         cartService.save(updateItem);
         return updateItem;
     }
+
+    @GetMapping("/findItem/{Id}")
+    public Object findEmployee(@PathVariable int Id) {
+        return  cartService.findById(Id);
+    }
+
 
     @DeleteMapping("/deleteItem/{itemId}")
     public String deleteItem(@PathVariable int itemId){

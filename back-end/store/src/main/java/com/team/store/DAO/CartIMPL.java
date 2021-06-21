@@ -17,7 +17,7 @@ public class CartIMPL implements CartDAO{
     private final EntityManager entityManager;
 
     @Autowired
-    private CartIMPL(EntityManager entityManager) {this.entityManager=entityManager;}
+    public CartIMPL(EntityManager entityManager) {this.entityManager=entityManager;}
 
     @Override
     @Transactional
@@ -37,7 +37,7 @@ public class CartIMPL implements CartDAO{
     @Transactional
     public void save(Cart theCart){
         Session currentSession = entityManager.unwrap(Session.class);
-        currentSession.save(theCart);
+        currentSession.saveOrUpdate(theCart);
     }
 
     @Override

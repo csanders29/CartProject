@@ -3,7 +3,7 @@ package com.team.store.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "cart")
+@Table(name = "store")
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,13 +16,13 @@ public class Cart {
     @Column(name="price")
     private double price;
 
-    @Column(name="stock in store")
+    @Column(name="stock_in_store")
     private int inStore;
 
     @Column(name="buy")
     private boolean buy;
 
-    @Column(name="item num")
+    @Column(name="item_num")
     private int itemNum;
 
     public Cart() {}

@@ -1,10 +1,52 @@
-import React from 'react'
+import React,{Component} from 'react'
 import CartItemComponent from './CartItemComponent'
 import FooterComponent from './FooterComponent'
 import HeaderComponent from './HeaderComponent'
 import {Link} from 'react-router-dom'
+import CartDataService from '../../service/CartDataService';
 
-function CartComponent(){
+class CartComponent extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            item:[]
+        }
+        this.refreshItemRegistry = this.refreshItemRegistry.bind(this)
+        this.deleteItemClicked = this.deleteItemClicked.bind(this)
+        this.upDateItemClicked = this.upDateItemClicked.bind(this)
+        this.addItemClicked = this.addItemClicked.bind(this)
+    }
+    
+    componentDidMount() {
+        this.refreshItemRegistry();
+    }
+
+    refreshItemRegistry() {
+        CartDataService.findAllItems()
+        .then(
+            response => {
+                this.setState({
+                    item: response.data,
+                })
+            }
+        )
+    }
+
+    deleteItemClicked(id, firstName, lastName) {
+        console.log('Delete item Clicked')
+        CartDataService.deleteItem(id)
+        .then(
+            response => {
+                this.setState({message: `Deleted Employee: ${firstName} ${lastName}`})
+                alert(this.state.message)
+                this.refreshEmployeeRegistry();
+            }
+        )
+    }
+
+
+
+    render(){
     return(
         <div>
             <HeaderComponent />
@@ -21,7 +63,7 @@ function CartComponent(){
 
         </div>
         
-    )
+    )}
 }
 
 export default CartComponent
