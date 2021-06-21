@@ -11,37 +11,6 @@ class CartComponent extends Component{
         this.state={
             item:[]
         }
-        this.refreshItemRegistry = this.refreshItemRegistry.bind(this)
-        this.deleteItemClicked = this.deleteItemClicked.bind(this)
-        this.upDateItemClicked = this.upDateItemClicked.bind(this)
-        this.addItemClicked = this.addItemClicked.bind(this)
-    }
-    
-    componentDidMount() {
-        this.refreshItemRegistry();
-    }
-
-    refreshItemRegistry() {
-        CartDataService.findAllItems()
-        .then(
-            response => {
-                this.setState({
-                    item: response.data,
-                })
-            }
-        )
-    }
-
-    deleteItemClicked(id, firstName, lastName) {
-        console.log('Delete item Clicked')
-        CartDataService.deleteItem(id)
-        .then(
-            response => {
-                this.setState({message: `Deleted Employee: ${firstName} ${lastName}`})
-                alert(this.state.message)
-                this.refreshEmployeeRegistry();
-            }
-        )
     }
 
 
