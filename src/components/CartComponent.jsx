@@ -3,20 +3,29 @@ import CartItemComponent from './CartItemComponent'
 import FooterComponent from './FooterComponent'
 import HeaderComponent from './HeaderComponent'
 import {Link} from 'react-router-dom'
+import apple from './images/apple.jpg'
+import banana from './images/banana.jpeg'
+import milk from './images/milk.jpg'
+import cheese from './images/cheese.jpg'
+import bread from './images/bread.jpg'
+import {BiArrowBack} from 'react-icons/bi'
 
 function CartComponent(){
     return(
         <div>
             <HeaderComponent />
-            <h2><Link to="../">back</Link></h2>
+            
+            <br></br>
+            <a href="../" className="back-btn"><BiArrowBack />back</a>
+
             <div className="item-list">
-                <CartItemComponent name="apple" price="$1.00"/>
-                <CartItemComponent name="banana" price="$1.20" />
-                <CartItemComponent name="milk" price="$2.70"/>
-                <CartItemComponent name="cheese" price="$1.50"/>
-                <CartItemComponent name="bread" price="$3.25"/>
+                <CartItemComponent image={apple} name="apple" price="$1.00"/>
+                <CartItemComponent image={banana} name="banana" price="$1.20" />
+                <CartItemComponent image={milk} name="milk" price="$2.70"/>
+                <CartItemComponent image={cheese} name="cheese" price="$1.50"/>
+                <CartItemComponent image={bread} name="bread" price="$3.25"/>
                 <p className="total">Total: </p>
-                <a href="/checkout" className="checkout-btn"><button>Checkout</button></a>
+                <a href="/checkout" className="checkout-btn">Checkout</a>
             </div>
 
         </div>
