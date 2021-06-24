@@ -6,22 +6,40 @@ import cheese from './images/cheese.jpg'
 import bread from './images/bread.jpg'
 import {CgAddR} from 'react-icons/cg'
 
+
 function ItemComponent(props){
+   
+    function add()
+    {   
+        if(props.itemNum===props.inStore)
+            alert("max of item in store");
+        else   
+            props.upDateItemClicked(props.id, props.name, props.price, props.inStore, props.buy, props.itemNum);
+            
+    }
+    
+   let image;
+    if(props.name==="apple")
+        image=apple;
+    else if(props.name==="banana")
+        image=banana;
+    else if(props.name==="milk")
+        image=milk;
+    else if(props.name==="cheese")
+        image=cheese;
+    else if(props.name==="bread")
+       image=bread;
+    
     return(
         <div className="item">
             {/*add image*/}
-            <img className="item-image" src={props.image} alt="." />
+            <img src={image} alt="new"/>
             <p className="item-name">{props.name}</p>
-            <p className="item-price">{props.price}</p>
-            {/* <button className="item-add-btn" onClick={addToCart}><CgAddR /></button> */}
-            <a className="item-add-btn" onClick={addToCart}><CgAddR /></a>
-
+            <p className="item-price">${props.price}</p>
+            <a className="item-add-btn" onClick={add}><CgAddR /></a>
+            
         </div>
     )
-}
-
-function addToCart(){
-    alert("Item added to cart!")
 }
 
 export default ItemComponent

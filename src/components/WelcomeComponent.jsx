@@ -12,8 +12,10 @@ function WelcomeComponent(){
         <div>
             <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
             <HeaderComponent />
+            <br/><br/>
             <a href="/cart" className="cart-icon"><FiShoppingCart /></a>
             <MainComponent />
+            <br/><br/><br/><br/><br/>
             <FooterComponent />
         </div>
     )   

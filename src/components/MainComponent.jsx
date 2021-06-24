@@ -1,22 +1,50 @@
-import React from 'react'
+import React,{Component} from 'react'
 import ItemComponent from './ItemComponent'
 import {Link} from 'react-router-dom'
-import apple from './images/apple.jpg'
-import banana from './images/banana.jpeg'
-import milk from './images/milk.jpg'
-import cheese from './images/cheese.jpg'
-import bread from './images/bread.jpg'
+import CartDataService from '../service/CartDataService'
 
-function MainComponent(){
+class MainComponent extends Component{
+    constructor(props){
+        super(props);
+        this.state={item:[]};
+        this.refreshItemRegistry = this.refreshItemRegistry.bind(this);
+        this.upDateItemClicked=this.upDateItemClicked.bind(this);
+    }
+    
+    componentDidMount() {
+        this.refreshItemRegistry();
+    }
+
+    refreshItemRegistry() {
+        CartDataService.findAllItems().then(
+            response => {this.setState({item: response.data,})}
+        )
+    }
+    
+    upDateItemClicked(id,name,price,inStore, buy, itemNum) {
+        alert("success add one item to the cart");
+        let item = {
+            id: id,
+            name: name,
+            price:price,
+            inStore: inStore,
+            buy: buy,
+            itemNum : itemNum+1
+        }
+        CartDataService.updateItem(item)//.then(() => this.props.history.push('/EmployeeRegistry'))
+        window.location.reload();
+    }
+
+    
+    render(){
+        const itemList= this.state.item.map(thing => <ItemComponent 
+            id={thing.id} name={thing.name} itemNum={thing.itemNum} buy={this.buy}
+                price={thing.price}  inStore={thing.inStore} upDateItemClicked={this.upDateItemClicked}/>);
     return(
         <div className="item-list">
-            <ItemComponent image={apple} name="apple" price="$1.00"/>
-            <ItemComponent image={banana} name="banana" price="$1.20" />
-            <ItemComponent image={milk} name="milk" price="$2.70"/>
-            <ItemComponent image={cheese} name="cheese" price="$1.50"/>
-            <ItemComponent image={bread} name="bread" price="$3.25"/>
+            {itemList}
         </div>
-    )
+    )}
 
 }
 
