@@ -1,8 +1,9 @@
-import React from 'react'
+import React,{Component} from 'react'
 import CartItemComponent from './CartItemComponent'
 import FooterComponent from './FooterComponent'
 import HeaderComponent from './HeaderComponent'
 import {Link} from 'react-router-dom'
+
 import apple from './images/apple.jpg'
 import banana from './images/banana.jpeg'
 import milk from './images/milk.jpg'
@@ -10,7 +11,20 @@ import cheese from './images/cheese.jpg'
 import bread from './images/bread.jpg'
 import {BiArrowBack} from 'react-icons/bi'
 
-function CartComponent(){
+import CartDataService from '../../service/CartDataService';
+
+
+class CartComponent extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            item:[]
+        }
+    }
+
+
+
+    render(){
     return(
         <div>
             <HeaderComponent />
@@ -30,7 +44,7 @@ function CartComponent(){
 
         </div>
         
-    )
+    )}
 }
 
 export default CartComponent
