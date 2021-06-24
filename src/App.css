@@ -2,9 +2,13 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.logo {
+  margin-right: 20px;
+}
+
 .header {
   height: 50px;
-  background-color: darkblue;
+  background-color: #00008b;
   color: aliceblue;
   margin-bottom: 15px;
   text-align: center;
@@ -13,7 +17,7 @@
   align-items: center;
   vertical-align: center;
   padding: 50px;
-  font-size: 30px;
+  font-size: 50px;
   font-style: bold;
 }
 
@@ -39,6 +43,8 @@
   flex-direction: column;
   align-items: center;
   padding: 30px;
+  margin-bottom: 100px;
+  min-height: 400px;
 }
 
 .item {
@@ -56,17 +62,32 @@
 
 .total {
   position: relative;
-  left: 30%;
+  left: 20%;
   font-size: 20px;
 }
 
 .item-add-btn {
   position: absolute;
-  right: 30%;
-  
+  right: 20%;
+  color: darkblue;
+  font-size: 30px;
+}
+
+.item-add-btn:hover {
+  color:mediumseagreen;
+}
+
+.back-btn{
+  color:darkblue;
+  font-size: 30px;
+}
+
+.back-btn:hover {
+  color:lightskyblue;
 }
 
 .item-name {
+  margin-left: 10%;
   padding-right: 10px;
   font-size: 20px;
   font-style: bold;
@@ -80,33 +101,61 @@
 
 .checkout-btn {
    margin-top: 40px;
+   width: 200px;
+   height: 50px;
+   font-size: 25px;
+   font-style: bold;
+   background-color: darkblue;
+   color: white;
+   text-align: center;
+   box-shadow: 0px 4px #656c85;
+   border: 2px solid darkblue;
+   border-radius: 15px; 
+   vertical-align: center;
+}
+
+.checkout-btn:hover {
+  background-color: mediumseagreen;
+  border: 2px solid darkgreen;
+
 }
 
 .cart-item-remove-btn {
   position: absolute;
-  right: 30%;
+  right: 20%;
+  color: darkblue;
+  font-size: 30px;
+}
+
+.cart-item-remove-btn:hover{
+  color:red;
 }
 
 .home-btn {
    position: absolute;
-   right: 47%;
-   bottom: 30%;
+   right: 49%;
+   bottom: 40%;
+   color: darkblue;
+   font-size: 30px;
    
 }
+
+.home-btn:hover {
+  color:lightskyblue;
+}
+
 
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.cart-icon{
+  color: darkblue;
+  font-size: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cart-icon:hover {
+  color:lightskyblue;
 }
 
 .App-header {

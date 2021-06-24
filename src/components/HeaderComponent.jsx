@@ -1,8 +1,15 @@
 import React from 'react'
+import logo from './images/logo.png'
 
 function HeaderComponent(){
     return(
-        <header className="header">Grocery Shop</header>
+        <div>
+            
+            <header className="header">
+            <img className="logo" src={logo} alt="." />
+                Grocery Shop</header>
+        </div>
+        
     )
 
 }
